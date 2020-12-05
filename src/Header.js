@@ -1,17 +1,34 @@
 import React from "react";
-import { Col, Dropdown, Form, FormControl, Nav, Row } from "react-bootstrap";
+import {
+  Col,
+  Dropdown,
+  Form,
+  FormControl,
+  Nav,
+  Row,
+} from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 
 const Header = (props) => {
   return (
     <div>
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">99eye</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#home">All Drinks</Nav.Link>
+          <Nav className="mr-auto"></Nav>
+          <Form inline>
             <Nav.Link href="#link">Search Drinks</Nav.Link>
+
+            <FormControl
+              autoFocus={true}
+              type="text"
+              placeholder="Search by ingerdient"
+              className="mr-sm-2"
+              onChange={(event) =>
+                props.search(event.target.value.toLowerCase())
+              }
+            />
             <Dropdown>
               <Dropdown.Toggle id="dropdown-custom-components">
                 <i
@@ -95,23 +112,16 @@ const Header = (props) => {
                       Optional alcohol
                     </Dropdown.Item>
                     <Dropdown.Divider />
-                    <h5 onClick={() => props.handleFilter("clear")}>
+                    <h5
+                      style={{ cursor: "pointer" }}
+                      onClick={() => props.handleFilter("clear")}
+                    >
                       Clear Filter
                     </h5>
                   </Col>
                 </Row>
               </Dropdown.Menu>
             </Dropdown>
-          </Nav>
-          <Form inline>
-            <FormControl
-              type="text"
-              placeholder="Search"
-              className="mr-sm-2"
-              onChange={(event) =>
-                props.search(event.target.value.toLowerCase())
-              }
-            />
           </Form>
         </Navbar.Collapse>
       </Navbar>
