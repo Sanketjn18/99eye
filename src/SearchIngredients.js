@@ -79,16 +79,17 @@ class SearchIngredients extends Component {
                 <Card.Body>
                   <Card.Text>
                       <>
-                    <p>Drink: {item.strDrink}</p>
+                    <h6>Drink: {item.strDrink}</h6>
                     {!this.state.filter && (
-                      <p>Click for details</p>
+                      <p style={{color:"blue"}}>Click for details</p>
                     )}
 
                     {this.state.filter && (
                       <div>
-                        <p>Glass: {item.strGlass}</p>
+                        <p><b>Glass:</b> {item.strGlass}</p>
                         <ul>
-                            Ingredients
+                            <h6>Ingredients</h6>
+                            
                             {item.strIngredient1 && <li>{item.strIngredient1}</li>}
                             {item.strIngredient2 && <li>{item.strIngredient2}</li>}
                             {item.strIngredient3 && <li>{item.strIngredient3}</li>}
@@ -104,7 +105,7 @@ class SearchIngredients extends Component {
             );
           })
         ) : (
-          <h4>No result found</h4>
+          <h4 className="mt-4">Please enter valid keyword..!</h4>
         )}
       </div>
     );
